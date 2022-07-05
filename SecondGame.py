@@ -5,13 +5,15 @@ class SecondGame(Engine):
 
     def start(self):
 
+        print(f'Загадай число от {self.guessing_from} до {self.guessing_to}!')
+
         while True:
             first_try = ((self.guessing_from + self.guessing_to) // 2)
             user_answer = input(f'Число больше, меньше или равно {first_try}? ')
 
             if user_answer == '=':
                 print(f'Это было легко..твое число {first_try}')
-                break
+                return
 
             elif user_answer == '>':
                 self.guessing_from = first_try
@@ -22,8 +24,8 @@ class SecondGame(Engine):
                 break
 
             else:
-                print('Чеее??')
-                break
+                print('Не похоже на знаки равенства... введи >, < или =')
+
 
 
         self.start()
