@@ -12,11 +12,11 @@ class FirstGame(Engine):
             if self.guessing_int == self.user_number:
                 return print(f'Ты отгадал {self.guessing_int}! Молодец!')
 
-            if self.guessing_int > self.user_number:
+            elif self.guessing_int > self.user_number:
                 print('Загаданное число больше\n')
                 break
 
-            if self.guessing_int < self.user_number:
+            elif self.guessing_int < self.user_number:
                 print('Загаданное число меньше\n')
                 break
 
