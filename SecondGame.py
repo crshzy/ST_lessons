@@ -11,7 +11,7 @@ class SecondGame(Engine):
             first_try = ((self.guessing_from + self.guessing_to) // 2)
             user_answer = input(f'Число больше, меньше или равно {first_try}? ')
 
-            if user_answer == '=':
+            if user_answer == '=': # попробуй реализовать match case
                 print(f'Это было легко..твое число {first_try}')
                 return
 

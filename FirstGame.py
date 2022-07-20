@@ -4,7 +4,7 @@ from Engine import Engine
 class FirstGame(Engine):
 
     def start(self):
-        self.user_number = input('Попробуй угадать число от 1 до 10: ')
+        self.user_number = input('Попробуй угадать число от 1 до 10: ') # работаешь с незадекларированной переменной
         while True:
             if not self.is_valid():
                 break
@@ -20,9 +20,7 @@ class FirstGame(Engine):
                 print('Загаданное число меньше\n')
                 break
 
-
-        self.start()
+        self.start() #Используешь неявное зацикливание, подумай, как сделать более явно (не ошибка)
 
 
 FirstGame()
-
