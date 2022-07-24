@@ -3,8 +3,12 @@ from Engine import Engine
 
 class FirstGame(Engine):
 
+    def __init__(self):
+        Engine.__init__(self)
+        self.start()
+
     def start(self):
-        self.user_number = input('Попробуй угадать число от 1 до 10: ') # работаешь с незадекларированной переменной
+        self.user_number = input('Попробуй угадать число от 1 до 10: ')
         while True:
             if not self.is_valid():
                 break
@@ -20,7 +24,8 @@ class FirstGame(Engine):
                 print('Загаданное число меньше\n')
                 break
 
-        self.start() #Используешь неявное зацикливание, подумай, как сделать более явно (не ошибка)
+        if __name__ == '__main__':
+            self.start()
 
 
 FirstGame()
