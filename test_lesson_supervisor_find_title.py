@@ -1,4 +1,4 @@
-"""Поиск заголовка в теге title test"""
+"""Поиск заголовка в Супервайзере"""
 
 import pytest
 from pytest_bdd import (given, scenario, then, when, parsers)
@@ -7,12 +7,7 @@ from BddAcceptanceTests.tests.utils.pageobjects.supervisor.DashboardsPage import
 
 
 @pytest.fixture(scope='function')
-def base_supervisor_page(browser): # Зачем это тут? Подумай, в чем ошибка
-    return BaseSupervisorPage(browser)
-
-
-@pytest.fixture(scope='function')
-def supervisor_dashboard_page(browser):
+def base_supervisor_page(browser):
     return DashboardsPage(browser)
 
 
@@ -32,9 +27,6 @@ def supervisor_is_opened(base_supervisor_page):
 
 @then(parsers.parse('Заголовок в теге title == {search_title}'))
 def first_title_on_page(supervisor_dashboard_page, search_title):
-    # В целом это не ошибка, НО в контексте нашей мультитенантности автогенерация шагов
-    # Пишет неподходящие докстринги, потому, что тест может быть переиспользован.
-    # Сформулируй вопросы, которые возникнут в связи с этим и приходи
     """Заголовок в теге h2 == ST Супервайзер - Панель индикаторов (Рубаненко Рустам Игоревич)"""
     assert supervisor_dashboard_page.find_tag_with_text('title', search_title), f'{search_title} is not shown'
 
